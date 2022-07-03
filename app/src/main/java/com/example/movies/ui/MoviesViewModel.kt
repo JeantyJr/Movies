@@ -8,12 +8,22 @@ import androidx.lifecycle.ViewModel
 import com.example.movies.data.model.MoviesResultResponse
 import com.example.movies.data.repository.Repositories
 import androidx.lifecycle.viewModelScope
+import com.bumptech.glide.load.engine.Resource
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 
 class MoviesViewModel (private val repositories: Repositories): ViewModel() {
 
  private   val _moviesList = MutableLiveData<List<MoviesResultResponse>>()
     val moviesResult: LiveData<List<MoviesResultResponse>> = _moviesList
+
+
+
+
+
+
 
     fun moviesResultResponse() {
 
@@ -27,9 +37,15 @@ class MoviesViewModel (private val repositories: Repositories): ViewModel() {
               }
 
           } catch (e: Exception){
-              Log.d("error Vm", "$e")
+             // Log.d("error Vm", "$e")
+                _moviesList.value = emptyList()
+              }
+
           }
       }
     }
 
-}
+
+
+
+

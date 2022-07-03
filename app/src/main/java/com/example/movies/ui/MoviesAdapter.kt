@@ -15,7 +15,7 @@ class MoviesAdapter(var list: List<MoviesResultResponse> = listOf(), val contex 
 
     var onItemClick : ((MoviesResultResponse) -> Unit)? = null
 
- //  private var list: List<MoviesResultResponse> = listOf()
+
 
 
 
